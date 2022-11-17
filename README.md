@@ -4,7 +4,7 @@ Patt and Max CW for Developing Maintainable Software (COMP2059 UNNC)
 
 
 Brainstorming Ideas and Approx Timetable 
-Date: 17 Nov 2022 First Meeting 
+Date: 17 Nov 2022 First Online Meeting (for 1 hour)
 
 We started Brainstorming ideas such as functions, special effects, ads on and so on
 
