@@ -11,3 +11,5 @@ We started Brainstorming ideas such as functions, special effects, ads on and so
 2. Amount of levels (varies by difficulty)
 3. limit area of window
 4. Improvement on the game visual/ game object 
+5. Function to upgrade weapons (varies by level) 
+6. Make Asteroid appears from the top of the game, not randomly appears. 
