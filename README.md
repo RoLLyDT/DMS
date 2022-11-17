@@ -13,4 +13,5 @@ We started Brainstorming ideas such as functions, special effects, ads on and so
 4. Improvement on the game visual/ game object/ in-game interface 
 5. Function to upgrade weapons (varies by level) 
 6. Make Asteroid appears from the top of the game, not randomly appears. (movement speed, normal size)
+7. Ability to choose skin/design of the rocket before starting the game. 
 
