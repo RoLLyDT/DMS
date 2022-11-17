@@ -10,4 +10,4 @@ We started Brainstorming ideas such as functions, special effects, ads on and so
 1. Add sound effect to the game (eg. background music, laser gun, asteroid explosion, etc)
 2. Amount of levels (varies by difficulty)
 3. limit area of window
-4. change design
+4. Improvement on the game visual/ game object 
