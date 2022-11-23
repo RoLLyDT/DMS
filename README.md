@@ -17,5 +17,5 @@ Features:
 2. Limit world edges
 3. Improvement on the game visual/ game object/ in-game interface (health bar) 
 4. Function to upgrade weapons (varies by level) 
-5. Ability to choose skin/design of the rocket before starting the game. 
+5. Ability to choose skin/design of the rocket before starting the game..
 
