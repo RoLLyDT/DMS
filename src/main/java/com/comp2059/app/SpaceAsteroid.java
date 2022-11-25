@@ -24,9 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.media.AudioClip; // Importing the audio clip class
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
 public class SpaceAsteroid extends Application {
@@ -102,7 +100,7 @@ public class SpaceAsteroid extends Application {
 
     Stage stage2;
 
-    // Rules stage, controls explaination stage and the stage where you input your
+    // Rules stage, controls explanation stage and the stage where you input your
     // name.
     public void secondStage() {
         stage2 = new Stage();
@@ -393,118 +391,45 @@ public class SpaceAsteroid extends Application {
     public class Asteroid {
         Image imgAsteroid = new Image(getClass().getResource("img/asteroid.png").toExternalForm());
         Image imgBigAsteroid = new Image(getClass().getResource("img/big_asteroid.png").toExternalForm());
-        ImageView imgviewAsteroid = new ImageView(imgAsteroid);
-        ImageView imgviewBigAsteroid = new ImageView(imgBigAsteroid);
-
         public void CreateAsteroid() {
             asteroidCounter++;
             asteroidCounter2++;
             // This is an algorithm that will spawn the asteroids, as your score gets bigger
             // more asteroids will spawn, to increase difficulty.
             if (score < 25) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
-            } else if (score >= 25 && score < 60) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
-            } else if (score >= 60 && score < 85) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
-                }
-            } else if (score >= 85) {
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter % modifier == 0) {
-                    Node newAsteroid = new ImageView(imgAsteroid);
-                    newAsteroid.relocate((int) (Math.random() * (W + newAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
-                    asteroid.add(newAsteroid);
-                    root.getChildren().add(newAsteroid);
-                }
-                if (asteroidCounter2 % modifier == 0) {
-                    Node newBigAsteroid = new ImageView(imgBigAsteroid);
-                    newBigAsteroid.relocate((int) (Math.random() * (H + newBigAsteroid.getBoundsInLocal().getWidth())),
-                            (int) (Math.random() / (W + newBigAsteroid.getBoundsInLocal().getWidth())));
-                    bigAsteroid.add(newBigAsteroid);
-                    root.getChildren().add(newBigAsteroid);
+                spawnAsteroids(1, 1);
+            } else if (score < 60) {
+                spawnAsteroids(2, 1);
+            } else if (score < 85) {
+                spawnAsteroids(3, 1);
+            } else {
+                spawnAsteroids(4, 1);
+            }
+        }
+        private void spawnAsteroids(int normalCnt, int bigCnt){
+            if (asteroidCounter % modifier == 0){
+                for (int i = 0; i < normalCnt; i++) {
+                    createNewAsteroid(imgAsteroid);
                 }
             }
-
+            if (asteroidCounter2 % modifier == 0){
+                for (int i = 0; i < bigCnt; i++) {
+                    createNewAsteroid(imgBigAsteroid);
+                }
+            }
+        }
+        private void createNewAsteroid(Image img){
+            double x = W;
+            if (img == imgBigAsteroid)
+                x = H;
+            Node newAsteroid = new ImageView(img);
+            newAsteroid.relocate((int) (Math.random() * (x + newAsteroid.getBoundsInLocal().getWidth())),
+                    (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
+            if (img == imgBigAsteroid)
+                bigAsteroid.add(newAsteroid);
+            else
+                asteroid.add(newAsteroid);
+            root.getChildren().add(newAsteroid);
         }
 
         // This methods cause the asteroids to move vertically downwards, the higher
