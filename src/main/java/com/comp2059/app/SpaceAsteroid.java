@@ -468,60 +468,49 @@ public class SpaceAsteroid extends Application {
             }
         }
 
-        // This is if the laser beam collided with asteroid it will cause and explosion
-        // and you will gain two points
+        // This is the method that runs the process of checking for collisions between
+        // the rocket and the asteroids. With making sounds/visual effects/score update.
         public void collide() {
+            checkWeaponsAsteroid(asteroid, 2, "img/explosion.gif", "audio/Explosion2.WAV");
+            checkWeaponsAsteroid(bigAsteroid, 4, "img/bigexplosion.gif", "audio/Explosion2.WAV");
+        }
+
+        // This is the method that will loop through the asteroids and check if the
+        // laser beam collided with the asteroid.
+        public void checkWeaponsAsteroid(ArrayList<Node> asteroids,int points, String explosionPath, String audioPath){
             for (int i = 0; i < weapons.size(); i++) {
-                for (int j = 0; j < asteroid.size(); j++) {
-                    if (weapons.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        // add audio here for explosion
-                        AudioClip audioClip_Explosion = new AudioClip(
-                                getClass().getResource("audio/Explosion2.WAV").toExternalForm());
-                        ImageView imgViewExplosion = new ImageView(imgExplosion);
-                        imgViewExplosion.relocate(asteroid.get(j).getLayoutX(), asteroid.get(j).getLayoutY());
-                        root.getChildren().remove(asteroid.get(j));
-                        asteroid.remove(j);
-                        root.getChildren().add(imgViewExplosion);
-                        audioClip_Explosion.play();
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion
-                                                                                           // doesn't infinitely loop.
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgViewExplosion);
-                        });
-                        wait.play();
-                        root.getChildren().remove(weapons.get(i));
-                        weapons.remove(i);
-                        score += 2;
-                        txtscore.setText("Score: " + score);
+                for (int j = 0; j < asteroids.size(); j++) {
+                    if (weapons.get(i).getBoundsInParent().intersects(asteroids.get(j).getBoundsInParent())) {
+                        contactExplosionEffect(i, j, points, explosionPath, audioPath, asteroids);
                     }
                 }
             }
-            for (int i = 0; i < weapons.size(); i++) {
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (weapons.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
-                        Image imgExplosion = new Image(getClass().getResource("img/bigexplosion.gif").toExternalForm());
-                        AudioClip audioClip_Explosion = new AudioClip(
-                                getClass().getResource("audio/Explosion2.WAV").toExternalForm());
-                        ImageView imgviewExplosion = new ImageView(imgExplosion);
-                        imgviewExplosion.relocate(bigAsteroid.get(j).getLayoutX(), bigAsteroid.get(j).getLayoutY());
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                        root.getChildren().add(imgviewExplosion);
-                        audioClip_Explosion.play();
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion
-                                                                                           // doesn't infinitely loop.
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
-                        wait.play();
-                        root.getChildren().remove(weapons.get(i));
-                        weapons.remove(i);
-                        score += 4;
-                        txtscore.setText("Score: " + score);
-                    }
-                }
-            }
+        }
+
+        // This is the method that will cause the explosion effect and add the points to the score.
+        // Requires the index of the weapon and asteroid, the points to add, the path of the explosion
+        // effect, the path of the audio clip, and the asteroid array list.
+        private void contactExplosionEffect(int i, int j, int points, String explosionPath, String audioPath, ArrayList<Node> asteroids){
+            Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
+            // add audio here for explosion
+            AudioClip audioClip_Explosion = new AudioClip(
+                    getClass().getResource(audioPath).toExternalForm());
+            ImageView imgViewExplosion = new ImageView(imgExplosion);
+            imgViewExplosion.relocate(asteroids.get(j).getLayoutX(), asteroids.get(j).getLayoutY());
+            root.getChildren().remove(asteroids.get(j));
+            asteroids.remove(j);
+            root.getChildren().add(imgViewExplosion);
+            audioClip_Explosion.play();
+            PauseTransition wait = new PauseTransition(Duration.seconds(0.8)); // This is so the explosion
+            // doesn't infinitely loop.
+            wait.setOnFinished((e) -> {
+                root.getChildren().remove(imgViewExplosion);
+            });
+            wait.play();
+            root.getChildren().remove(weapons.get(i));
+            weapons.remove(i);
+            score += points;
+            txtscore.setText("Score: " + score);
         }
     }
 
