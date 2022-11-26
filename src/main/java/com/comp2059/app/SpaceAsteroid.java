@@ -391,6 +391,8 @@ public class SpaceAsteroid extends Application {
     public class Asteroid {
         Image imgAsteroid = new Image(getClass().getResource("img/asteroid.png").toExternalForm());
         Image imgBigAsteroid = new Image(getClass().getResource("img/big_asteroid.png").toExternalForm());
+
+        // This is to spawn the asteroids based on the current score.
         public void CreateAsteroid() {
             asteroidCounter++;
             asteroidCounter2++;
@@ -406,6 +408,8 @@ public class SpaceAsteroid extends Application {
                 spawnAsteroids(4, 1);
             }
         }
+
+        // This is the method that will spawn the asteroids.
         private void spawnAsteroids(int normalCnt, int bigCnt){
             if (asteroidCounter % modifier == 0){
                 for (int i = 0; i < normalCnt; i++) {
@@ -418,6 +422,8 @@ public class SpaceAsteroid extends Application {
                 }
             }
         }
+
+        // This is the method that creates the asteroids.
         private void createNewAsteroid(Image img){
             double x = W;
             if (img == imgBigAsteroid)
@@ -432,80 +438,32 @@ public class SpaceAsteroid extends Application {
             root.getChildren().add(newAsteroid);
         }
 
-        // This methods cause the asteroids to move vertically downwards, the higher
+        // This method cause the asteroids to move vertically downwards, the higher
         // your score is the faster the asteroids will move; to increase difficulty
         public void moveAsteroid() {
             if (score < 40) {
-                for (int i = 0; i < asteroid.size(); i++) {
-                    if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                        asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 7);
-                    } else {
-                        root.getChildren().remove(asteroid.get(i));
-                        asteroid.remove(i);
-                    }
-                }
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                        bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(),
-                                bigAsteroid.get(j).getLayoutY() + 6);
-                    } else {
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                    }
-                }
-            } else if (score >= 40 && score < 70) {
-                for (int i = 0; i < asteroid.size(); i++) {
-                    if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                        asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 9);
-                    } else {
-                        root.getChildren().remove(asteroid.get(i));
-                        asteroid.remove(i);
-                    }
-                }
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                        bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(),
-                                bigAsteroid.get(j).getLayoutY() + 8);
-                    } else {
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                    }
-                }
-            } else if (score >= 70 && score < 100) {
-                for (int i = 0; i < asteroid.size(); i++) {
-                    if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                        asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 11);
-                    } else {
-                        root.getChildren().remove(asteroid.get(i));
-                        asteroid.remove(i);
-                    }
-                }
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                        bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(),
-                                bigAsteroid.get(j).getLayoutY() + 10);
-                    } else {
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                    }
-                }
-            } else if (score >= 100) {
-                for (int i = 0; i < asteroid.size(); i++) {
-                    if (asteroid.get(i).getLayoutX() > -asteroid.get(i).getBoundsInLocal().getWidth()) {
-                        asteroid.get(i).relocate(asteroid.get(i).getLayoutX(), asteroid.get(i).getLayoutY() + 14);
-                    } else {
-                        root.getChildren().remove(asteroid.get(i));
-                        asteroid.remove(i);
-                    }
-                }
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (bigAsteroid.get(j).getLayoutX() > -bigAsteroid.get(j).getBoundsInLocal().getWidth()) {
-                        bigAsteroid.get(j).relocate(bigAsteroid.get(j).getLayoutX(),
-                                bigAsteroid.get(j).getLayoutY() + 13);
-                    } else {
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        bigAsteroid.remove(j);
-                    }
+                speedAsteroids(asteroid, 7);
+                speedAsteroids(bigAsteroid, 6);
+            } else if (score < 70) {
+                speedAsteroids(asteroid, 9);
+                speedAsteroids(bigAsteroid, 8);
+            } else if (score < 100) {
+                speedAsteroids(asteroid, 11);
+                speedAsteroids(bigAsteroid, 10);
+            } else {
+                speedAsteroids(asteroid, 14);
+                speedAsteroids(bigAsteroid, 13);
+            }
+        }
+
+        //Simplified process of increasing velocity of asteroids
+        private void speedAsteroids(ArrayList<Node> asteroids, int buff){
+            for (int i = 0; i < asteroids.size(); i++) {
+                if (asteroids.get(i).getLayoutX() > -asteroids.get(i).getBoundsInLocal().getWidth()) {
+                    asteroids.get(i).relocate(asteroids.get(i).getLayoutX(), asteroids.get(i).getLayoutY() + buff);
+                } else {
+                    root.getChildren().remove(asteroids.get(i));
+                    asteroids.remove(i);
                 }
             }
         }
