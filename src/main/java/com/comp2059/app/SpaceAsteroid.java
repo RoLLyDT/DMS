@@ -310,81 +310,56 @@ public class SpaceAsteroid extends Application {
     public class Player {
         // This is if the shuttle collided with asteroid.
         public void collide() {
-            for (int i = 0; i < rocket.size(); i++) {
-                for (int j = 0; j < asteroid.size(); j++) {
-                    if (rocket.get(i).getBoundsInParent().intersects(asteroid.get(j).getBoundsInParent())) {
-                        gameOver = true;
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        AudioClip audioClip_Explosion = new AudioClip(
-                                getClass().getResource("audio/Explosion2.WAV").toExternalForm());
-                        ImageView imgviewExplosion = new ImageView(imgExplosion);
-                        imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
-                        root.getChildren().remove(asteroid.get(j));
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8));
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
-                        wait.play();
-                        asteroid.remove(j);
-                        root.getChildren().add(imgviewExplosion);
-                        audioClip_Explosion.play();
-                        root.getChildren().remove(rocket.get(i));
-                        rocket.remove(i);
-                        Text txtGameOver = new Text(500, 360, "Gameover!");
-                        txtGameOver.setFill(Color.RED);
-                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
-                        txtGameOver.setFont(font3);
-                        root.getChildren().add(txtGameOver);
-                        Button btnQuit = new Button("Quit");
-                        btnQuit.setScaleX(6);
-                        btnQuit.setScaleY(4);
-                        btnQuit.setTextFill(Color.YELLOW);
-                        btnQuit.setTranslateX(1000);
-                        btnQuit.setTranslateY(600);
-                        btnQuit.setStyle("-fx-background-color: red;");
-                        root.getChildren().add(btnQuit);
-                        btnQuit.setOnAction(e -> Platform.exit());
-                    }
-                }
-            }
+            checkShuttleAsteroid(asteroid, "img/explosion.gif", "audio/Explosion2.WAV");
+            checkShuttleAsteroid(bigAsteroid, "img/big_explosion.gif", "audio/Explosion2.WAV");
+        }
 
+        // This is to check if the shuttle collided with asteroid.
+        private void checkShuttleAsteroid(ArrayList<Node> asteroids, String explosionPath, String audioPath){
             for (int i = 0; i < rocket.size(); i++) {
-                for (int j = 0; j < bigAsteroid.size(); j++) {
-                    if (rocket.get(i).getBoundsInParent().intersects(bigAsteroid.get(j).getBoundsInParent())) {
-                        gameOver = true;
-                        Image imgExplosion = new Image(getClass().getResource("img/explosion.gif").toExternalForm());
-                        AudioClip audioClip_Explosion = new AudioClip(
-                                getClass().getResource("audio/Explosion2.WAV").toExternalForm());
-                        ImageView imgviewExplosion = new ImageView(imgExplosion);
-                        imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
-                        root.getChildren().remove(bigAsteroid.get(j));
-                        PauseTransition wait = new PauseTransition(Duration.seconds(0.8));
-                        wait.setOnFinished((e) -> {
-                            root.getChildren().remove(imgviewExplosion);
-                        });
-                        wait.play();
-                        bigAsteroid.remove(j);
-                        root.getChildren().add(imgviewExplosion);
-                        audioClip_Explosion.play();
-                        root.getChildren().remove(rocket.get(i));
-                        rocket.remove(i);
-                        Text txtGameOver = new Text(500, 360, "Gameover!");
-                        txtGameOver.setFill(Color.RED);
-                        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
-                        txtGameOver.setFont(font3);
-                        root.getChildren().add(txtGameOver);
-                        Button btnQuit = new Button("Quit");
-                        btnQuit.setScaleX(6);
-                        btnQuit.setScaleY(4);
-                        btnQuit.setTextFill(Color.YELLOW);
-                        btnQuit.setTranslateX(1000);
-                        btnQuit.setTranslateY(600);
-                        btnQuit.setStyle("-fx-background-color: red;");
-                        root.getChildren().add(btnQuit);
-                        btnQuit.setOnAction(e -> Platform.exit());
+                for (int j = 0; j < asteroids.size(); j++) {
+                    if (rocket.get(i).getBoundsInParent().intersects(asteroids.get(j).getBoundsInParent())) {
+                        contactShuttleAsteroid(i, j, explosionPath, audioPath, asteroids);
                     }
                 }
             }
+        }
+
+        // Method to play the explosion sound and image.
+        // Also to remove the asteroid and shuttle from the game.
+        // Also to stop the game and display the game over screen.
+        private void contactShuttleAsteroid(int i, int j, String explosionPath, String audioPath, ArrayList<Node> asteroids){
+            gameOver = true;
+            Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
+            AudioClip audioClip_Explosion = new AudioClip(
+                    getClass().getResource(audioPath).toExternalForm());
+            ImageView imgviewExplosion = new ImageView(imgExplosion);
+            imgviewExplosion.relocate(rocket.get(i).getLayoutX(), rocket.get(i).getLayoutY());
+            root.getChildren().remove(asteroids.get(j));
+            PauseTransition wait = new PauseTransition(Duration.seconds(0.8));
+            wait.setOnFinished((e) -> {
+                root.getChildren().remove(imgviewExplosion);
+            });
+            wait.play();
+            asteroids.remove(j);
+            root.getChildren().add(imgviewExplosion);
+            audioClip_Explosion.play();
+            root.getChildren().remove(rocket.get(i));
+            rocket.remove(i);
+            Text txtGameOver = new Text(500, 360, "Gameover!");
+            txtGameOver.setFill(Color.RED);
+            Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
+            txtGameOver.setFont(font3);
+            root.getChildren().add(txtGameOver);
+            Button btnQuit = new Button("Quit");
+            btnQuit.setScaleX(6);
+            btnQuit.setScaleY(4);
+            btnQuit.setTextFill(Color.YELLOW);
+            btnQuit.setTranslateX(1000);
+            btnQuit.setTranslateY(600);
+            btnQuit.setStyle("-fx-background-color: red;");
+            root.getChildren().add(btnQuit);
+            btnQuit.setOnAction(e -> Platform.exit());
         }
     }
 
@@ -481,7 +456,7 @@ public class SpaceAsteroid extends Application {
             for (int i = 0; i < weapons.size(); i++) {
                 for (int j = 0; j < asteroids.size(); j++) {
                     if (weapons.get(i).getBoundsInParent().intersects(asteroids.get(j).getBoundsInParent())) {
-                        contactExplosionEffect(i, j, points, explosionPath, audioPath, asteroids);
+                        contactWeaponAsteroid(i, j, points, explosionPath, audioPath, asteroids);
                     }
                 }
             }
@@ -490,7 +465,7 @@ public class SpaceAsteroid extends Application {
         // This is the method that will cause the explosion effect and add the points to the score.
         // Requires the index of the weapon and asteroid, the points to add, the path of the explosion
         // effect, the path of the audio clip, and the asteroid array list.
-        private void contactExplosionEffect(int i, int j, int points, String explosionPath, String audioPath, ArrayList<Node> asteroids){
+        private void contactWeaponAsteroid(int i, int j, int points, String explosionPath, String audioPath, ArrayList<Node> asteroids){
             Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
             // add audio here for explosion
             AudioClip audioClip_Explosion = new AudioClip(
