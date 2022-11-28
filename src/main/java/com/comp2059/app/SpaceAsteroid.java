@@ -8,13 +8,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -39,6 +37,7 @@ public class SpaceAsteroid extends Application {
     int asteroidCounter = 0;
     int asteroidCounter2 = 0;
     int modifier = 150;
+    Space space = new Space();
     TextField txtName = new TextField();
     boolean gameOver = false;
     Text txtscore;
@@ -83,6 +82,31 @@ public class SpaceAsteroid extends Application {
         root.getChildren().add(label);
         root.getChildren().add(btnStart);
         root.getChildren().add(btnExit);
+
+        //choiceBox for backgrounds
+        HBox hBox = new HBox();
+
+        ChoiceBox<String> choiceBox = new ChoiceBox<>();
+        choiceBox.getItems().addAll("Background1", "Background2", "Background3");
+
+        choiceBox.setValue("Background1");
+
+        //choice = choiceBox.getSelectionModel().getSelectedItem();
+        //System.out.println(choice);
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+            if (newValue.equals("Background1")) {
+                space = new Space("img/background.png");
+            } else if (newValue.equals("Background2")) {
+                space = new Space("img/background2.png");
+            } else if (newValue.equals("Background3")) {
+                space = new Space("img/background3.png");
+            }
+        });
+        hBox.getChildren().addAll(choiceBox);
+        hBox.setTranslateX(600);
+        hBox.setTranslateY(600);
+        root.getChildren().add(hBox);
+
         btnExit.setOnAction(e -> Platform.exit());
         btnStart.setOnAction(e -> {
             secondStage(); //This opens the second stage.
@@ -192,7 +216,6 @@ public class SpaceAsteroid extends Application {
         txtscore.setFont(font2);
         stage3.setTitle("Space Asteroids");
         rocket.add(imgviewShuttle);
-        Space space = new Space();
         space.Create();
         imgviewShuttle.setLayoutX(570);
         imgviewShuttle.setLayoutY(450);
@@ -363,7 +386,7 @@ public class SpaceAsteroid extends Application {
         }
     }
 
-    public class Asteroid {
+    public class Asteroid   {
         Image imgAsteroid = new Image(getClass().getResource("img/asteroid.png").toExternalForm());
         Image imgBigAsteroid = new Image(getClass().getResource("img/big_asteroid.png").toExternalForm());
 
@@ -502,13 +525,23 @@ public class SpaceAsteroid extends Application {
     }
 
     public class Space {
-        // This classes will add the background image to the stage
-        Image background = new Image(getClass().getResource("img/background.png").toExternalForm());
-        ImageView imgbackground = new ImageView(background);
+        // This class will add the background image to the stage
+        ImageView imgbackground = new ImageView(getClass().getResource("img/background.png").toExternalForm());
+
+        public Space(String background) {
+            imgbackground = new ImageView(getClass().getResource(background).toExternalForm());
+        }
+
+        public Space(){
+        }
 
         public void Create() {
             root.getChildren().add(imgbackground);
         }
+    }
+
+    private Object getChoice(ChoiceBox<String> choiceBox) {
+        return null;
     }
 
     public static void main(String[] args) {
