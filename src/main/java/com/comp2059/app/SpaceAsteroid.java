@@ -311,7 +311,7 @@ public class SpaceAsteroid extends Application {
         // This is if the shuttle collided with asteroid.
         public void collide() {
             checkShuttleAsteroid(asteroid, "img/explosion.gif", "audio/Explosion2.WAV");
-            checkShuttleAsteroid(bigAsteroid, "img/big_explosion.gif", "audio/Explosion2.WAV");
+            checkShuttleAsteroid(bigAsteroid, "img/bigexplosion.gif", "audio/Explosion2.WAV");
         }
 
         // This is to check if the shuttle collided with asteroid.
@@ -452,7 +452,7 @@ public class SpaceAsteroid extends Application {
 
         // This is the method that will loop through the asteroids and check if the
         // laser beam collided with the asteroid.
-        public void checkWeaponsAsteroid(ArrayList<Node> asteroids,int points, String explosionPath, String audioPath){
+        public void checkWeaponsAsteroid(ArrayList<Node> asteroids, int points, String explosionPath, String audioPath){
             for (int i = 0; i < weapons.size(); i++) {
                 for (int j = 0; j < asteroids.size(); j++) {
                     if (weapons.get(i).getBoundsInParent().intersects(asteroids.get(j).getBoundsInParent())) {
