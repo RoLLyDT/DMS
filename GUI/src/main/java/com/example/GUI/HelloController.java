@@ -1,4 +1,4 @@
-package com.example.demo6;
+package com.example.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
