@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.HelloController">
    <children>
       <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="301.0" prefHeight="23.0" prefWidth="150.0" text="Label" textFill="WHITE">
@@ -16,7 +15,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="Start" layoutX="14.0" layoutY="324.0" mnemonicParsing="false" onAction="#StartPressed" prefHeight="45.0" prefWidth="115.0" text="Start">
+      <Button fx:id="Start" layoutX="14.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="45.0" prefWidth="115.0" text="Start">
          <font>
             <Font size="33.0" />
          </font>
