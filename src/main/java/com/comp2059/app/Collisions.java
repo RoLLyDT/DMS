@@ -14,7 +14,7 @@ public class Collisions {
 
     public Collisions(GameStage game) {
         this.stage = game;
-        musicPlayer=new MusicPlayer();
+        musicPlayer = new MusicPlayer();
     }
 
     public void collide() {
@@ -34,7 +34,7 @@ public class Collisions {
     }
 
     private void contactWeaponAsteroid(int i, int j, int points, String explosionPath,
-                                       ArrayList<Node> asteroids) {
+            ArrayList<Node> asteroids) {
         Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
         // add audio here for explosion
         ImageView imgViewExplosion = new ImageView(imgExplosion);
@@ -51,6 +51,7 @@ public class Collisions {
         wait.play();
         stage.root.getChildren().remove(stage.weapons.get(i));
         stage.weapons.remove(i);
-        stage.increaseScore();
+        stage.score += points;
+        stage.txtscore.setText("Score: " + stage.score);
     }
 }

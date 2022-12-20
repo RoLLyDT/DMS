@@ -24,12 +24,11 @@ public class GameStage {
     Space space;
     private MusicPlayer musicPlayer;
 
-
     boolean goUp, goDown, goLeft, goRight, shoot;
     ArrayList<Node> weapons = new ArrayList<>();
     Asteroids asteroids;
     ArrayList<Node> rocket = new ArrayList<>();
-    static final double L = 800, W = 1200, H = 720; //SIZES
+    static final double L = 800, W = 1200, H = 720; // SIZES
     int dShoot = 10;
     Group root = new Group();
     int asteroidCounter = 0;
@@ -41,6 +40,7 @@ public class GameStage {
     Text txtscore;
     int score = 0;
     GameStage gameStage;
+    private int points;
 
     public GameStage(Stage stage, String space) {
         this.asteroids = new Asteroids();
@@ -139,29 +139,36 @@ public class GameStage {
 
                 if (currX < scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
                     if (currY > 0)
-                        if (goUp) currY -= delta;
+                        if (goUp)
+                            currY -= delta;
                     if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
-                        if (goDown) currY += delta;
+                        if (goDown)
+                            currY += delta;
                     if (currX > -20)
-                        if (goLeft) currX -= delta;
-                    if (goRight) currX += delta;
+                        if (goLeft)
+                            currX -= delta;
+                    if (goRight)
+                        currX += delta;
                 }
                 if (currX >= scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
                     if (currY > 0)
-                        if (goUp) currY -= delta;
+                        if (goUp)
+                            currY -= delta;
                     if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
-                        if (goDown) currY += delta;
+                        if (goDown)
+                            currY += delta;
                     if (currX > -20)
-                        if (goLeft) currX -= delta;
+                        if (goLeft)
+                            currX -= delta;
                 }
 
                 /**
-                shuttle height = 100
-                shuttle width = 80
-                u.up.min = 0
-                y.down.max = 620
-                x.left.min = -20
-                **/
+                 * shuttle height = 100
+                 * shuttle width = 80
+                 * u.up.min = 0
+                 * y.down.max = 620
+                 * x.left.min = -20
+                 **/
 
                 imgviewShuttle.relocate(currX, currY);
                 Player shuttle = new Player(gameStage);
@@ -170,18 +177,13 @@ public class GameStage {
                 shuttle.collide();
                 Asteroid asteroid = new Asteroid(gameStage);
                 asteroid.CreateAsteroid();
-                Velocity velocity=new Velocity(gameStage);
+                Velocity velocity = new Velocity(gameStage);
                 velocity.moveAsteroid();
-                Collisions collisions=new Collisions(gameStage);
+                Collisions collisions = new Collisions(gameStage);
                 collisions.collide();
             }
         };
         timer.start();
-    }
-
-    public void increaseScore() {
-        this.score++;
-        txtscore.setText("Score: " + score);
     }
 
     public void show() {
