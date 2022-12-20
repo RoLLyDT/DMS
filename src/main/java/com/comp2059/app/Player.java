@@ -57,11 +57,13 @@ public class Player {
         audioClip_Explosion.play();
         game.root.getChildren().remove(game.rocket.get(i));
         game.rocket.remove(i);
+
         Text txtGameOver = new Text(500, 360, "Gameover!");
         txtGameOver.setFill(Color.RED);
         Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 60);
         txtGameOver.setFont(font3);
         game.root.getChildren().add(txtGameOver);
+
         Button btnQuit = new Button("Quit");
         btnQuit.setScaleX(6);
         btnQuit.setScaleY(4);

@@ -29,7 +29,7 @@ public class GameStage {
     ArrayList<Node> weapons = new ArrayList<>();
     Asteroids asteroids;
     ArrayList<Node> rocket = new ArrayList<>();
-    static final double L = 800, W = 1400, H = 820;
+    static final double L = 800, W = 1200, H = 720; //SIZES
     int dShoot = 10;
     Group root = new Group();
     int asteroidCounter = 0;
@@ -136,6 +136,7 @@ public class GameStage {
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
                 double currY = imgviewShuttle.getLayoutY();
+                //System.out.println("X = " + currX + " Y = " + currY);
                 if (imgviewShuttle.getLayoutX() < 1120) // Creating a invisble game wall border
                 {
                     if (goUp)
