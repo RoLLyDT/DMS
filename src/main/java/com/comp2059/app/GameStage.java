@@ -136,26 +136,32 @@ public class GameStage {
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
                 double currY = imgviewShuttle.getLayoutY();
-                //System.out.println("X = " + currX + " Y = " + currY);
-                if (imgviewShuttle.getLayoutX() < 1120) // Creating a invisble game wall border
-                {
-                    if (goUp)
-                        currY -= delta;
-                    if (goDown)
-                        currY += delta;
-                    if (goLeft)
-                        currX -= delta;
-                    if (goRight)
-                        currX += delta;
+
+                if (currX < scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
+                    if (currY > 0)
+                        if (goUp) currY -= delta;
+                    if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
+                        if (goDown) currY += delta;
+                    if (currX > -20)
+                        if (goLeft) currX -= delta;
+                    if (goRight) currX += delta;
                 }
-                if (imgviewShuttle.getLayoutX() >= 1120) {
-                    if (goLeft)
-                        currX -= delta;
-                    if (goUp)
-                        currY -= delta;
-                    if (goDown)
-                        currY += delta;
+                if (currX >= scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
+                    if (currY > 0)
+                        if (goUp) currY -= delta;
+                    if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
+                        if (goDown) currY += delta;
+                    if (currX > -20)
+                        if (goLeft) currX -= delta;
                 }
+
+                /**
+                shuttle height = 100
+                shuttle width = 80
+                u.up.min = 0
+                y.down.max = 620
+                x.left.min = -20
+                **/
 
                 imgviewShuttle.relocate(currX, currY);
                 Player shuttle = new Player(gameStage);
