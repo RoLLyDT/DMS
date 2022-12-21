@@ -47,11 +47,15 @@ public class Asteroid {
     }
 
     private void createNewAsteroid(Image img) {
-        double x = W;
+        double x, randomWidth = 0;
         if (img == imgBigAsteroid)
             x = H;
+        else
+            x = W;
+
         Node newAsteroid = new ImageView(img);
-        newAsteroid.relocate((int) (Math.random() * (x + newAsteroid.getBoundsInLocal().getWidth())),
+        randomWidth = Math.random() * (x - newAsteroid.getBoundsInLocal().getWidth());
+        newAsteroid.relocate((int) randomWidth,
                              (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
         if (img == imgBigAsteroid)
             stage.asteroids.addBigAsteroid(newAsteroid);
