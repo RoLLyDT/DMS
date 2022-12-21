@@ -162,14 +162,6 @@ public class GameStage {
                             currX -= delta;
                 }
 
-                /**
-                 * shuttle height = 100
-                 * shuttle width = 80
-                 * u.up.min = 0
-                 * y.down.max = 620
-                 * x.left.min = -20
-                 **/
-
                 imgviewShuttle.relocate(currX, currY);
                 Player shuttle = new Player(gameStage);
                 Bullet fire = new Bullet(gameStage);

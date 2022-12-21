@@ -64,6 +64,12 @@ public class Player {
         txtGameOver.setFont(font3);
         game.root.getChildren().add(txtGameOver);
 
+        Text txtScore = new Text(520, 430, "Final Score: " + game.score);
+        txtScore.setFill(Color.RED);
+        Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 40);
+        txtScore.setFont(font2);
+        game.root.getChildren().add(txtScore);
+
         Button btnQuit = new Button("Quit");
         btnQuit.setScaleX(6);
         btnQuit.setScaleY(4);

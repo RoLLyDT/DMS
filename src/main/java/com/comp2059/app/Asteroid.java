@@ -52,7 +52,7 @@ public class Asteroid {
             x = H;
         Node newAsteroid = new ImageView(img);
         newAsteroid.relocate((int) (Math.random() * (x + newAsteroid.getBoundsInLocal().getWidth())),
-                (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
+                             (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
         if (img == imgBigAsteroid)
             stage.asteroids.addBigAsteroid(newAsteroid);
         else

@@ -41,7 +41,7 @@
                 <Font size="24.0" />
             </font>
         </Button>
-        <TextField fx:id="name" layoutX="641.0" layoutY="371.0" prefHeight="51.0" prefWidth="222.0" text="asddsa">
+        <TextField fx:id="name" layoutX="641.0" layoutY="371.0" prefHeight="51.0" prefWidth="222.0">
          <font>
             <Font size="18.0" />
          </font></TextField>
