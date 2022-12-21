@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.HelloController">
    <children>
       <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" layoutX="528.0" layoutY="502.0" prefHeight="23.0" prefWidth="173.0" text="Label" textFill="WHITE">
          <font>
@@ -36,5 +36,10 @@
             <Font size="48.0" />
          </font>
       </Label>
+      <Button fx:id="Info" layoutX="382.0" layoutY="513.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="62.0" prefWidth="102.0" text="Info">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
