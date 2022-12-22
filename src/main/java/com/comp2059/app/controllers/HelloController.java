@@ -37,6 +37,10 @@ public class HelloController implements Initializable {
         HelloApplication.showThird(space);
     }
 
+    public void switchToScene4(ActionEvent event) throws IOException {
+        HelloApplication.showFourth(space);
+    }
+
     // Group root = new Group();
     @FXML
     private ChoiceBox<String> Dropdownmenu;

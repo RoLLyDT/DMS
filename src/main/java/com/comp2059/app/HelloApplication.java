@@ -50,6 +50,15 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    public static void showFourth(String s) throws IOException {
+        space = s;
+        stage.setTitle("Space Asteroids");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("page4.fxml"));
+        Scene scene = new Scene(root, W, H, Color.BLACK);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void showGame() {
         GameStage gameStage = new GameStage(stage, space);
         gameStage.show();

@@ -41,5 +41,10 @@
             <Font size="33.0" />
          </font>
       </Button>
+      <Button fx:id="option" layoutX="733.0" layoutY="520.0" mnemonicParsing="false" onAction="#switchToScene4" prefHeight="62.0" prefWidth="102.0" text="Option">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
