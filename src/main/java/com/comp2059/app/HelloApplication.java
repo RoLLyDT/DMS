@@ -1,5 +1,7 @@
 package com.comp2059.app;
 
+import com.comp2059.app.models.GameStage;
+import com.comp2059.app.models.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

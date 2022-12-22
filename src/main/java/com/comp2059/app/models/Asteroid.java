@@ -1,15 +1,16 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
+import com.comp2059.app.HelloApplication;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import static com.comp2059.app.GameStage.H;
-import static com.comp2059.app.GameStage.W;
+import static com.comp2059.app.models.GameStage.H;
+import static com.comp2059.app.models.GameStage.W;
 
 public class Asteroid {
-    Image imgAsteroid = new Image(getClass().getResource("img/asteroid.png").toExternalForm());
-    Image imgBigAsteroid = new Image(getClass().getResource("img/big_asteroid.png").toExternalForm());
+    Image imgAsteroid = new Image(HelloApplication.class.getResource("img/asteroid.png").toExternalForm());
+    Image imgBigAsteroid = new Image(HelloApplication.class.getResource("img/big_asteroid.png").toExternalForm());
 
     private MusicPlayer musicPlayer;
     private GameStage stage;

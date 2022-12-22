@@ -1,5 +1,6 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
+import com.comp2059.app.HelloApplication;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
@@ -29,7 +30,8 @@ public class Velocity {
 
     private void speedAsteroids(ArrayList<Node> asteroids, int buff) {
         for (int i = 0; i < asteroids.size(); i++) {
-            if (asteroids.get(i).getLayoutX() > -asteroids.get(i).getBoundsInLocal().getWidth()) {
+            if (asteroids.get(i).getLayoutX() > -asteroids.get(i).getBoundsInLocal().getWidth() &&
+                    asteroids.get(i).getLayoutY() < HelloApplication.H) {
                 asteroids.get(i).relocate(asteroids.get(i).getLayoutX(), asteroids.get(i).getLayoutY() + buff);
             } else {
                 stage.root.getChildren().remove(asteroids.get(i));

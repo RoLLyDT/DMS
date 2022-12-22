@@ -1,5 +1,6 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
+import com.comp2059.app.HelloApplication;
 import javafx.animation.PauseTransition;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -35,7 +36,7 @@ public class Collisions {
 
     private void contactWeaponAsteroid(int i, int j, int points, String explosionPath,
             ArrayList<Node> asteroids) {
-        Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
+        Image imgExplosion = new Image(HelloApplication.class.getResource(explosionPath).toExternalForm());
         // add audio here for explosion
         ImageView imgViewExplosion = new ImageView(imgExplosion);
         imgViewExplosion.relocate(asteroids.get(j).getLayoutX(), asteroids.get(j).getLayoutY());

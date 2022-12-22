@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.SecondStageController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controllers.SecondStageController">
     <children>
         <Label layoutX="472.0" layoutY="73.0" prefHeight="89.0" prefWidth="256.0" text="Space Asteroids" textFill="WHITE">
             <font>

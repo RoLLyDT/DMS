@@ -1,6 +1,6 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
-import static com.comp2059.app.GameStage.W;
+import static com.comp2059.app.models.GameStage.W;
 
 public class Bullet {
     GameStage game;

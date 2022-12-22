@@ -1,5 +1,6 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
+import com.comp2059.app.HelloApplication;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -41,9 +42,9 @@ public class Player {
     private void contactShuttleAsteroid(int i, int j, String explosionPath, String audioPath,
                                         ArrayList<Node> asteroids) {
         game.gameOver = true;
-        Image imgExplosion = new Image(getClass().getResource(explosionPath).toExternalForm());
+        Image imgExplosion = new Image(HelloApplication.class.getResource(explosionPath).toExternalForm());
         AudioClip audioClip_Explosion = new AudioClip(
-                getClass().getResource(audioPath).toExternalForm());
+                HelloApplication.class.getResource(audioPath).toExternalForm());
         ImageView imgviewExplosion = new ImageView(imgExplosion);
         imgviewExplosion.relocate(game.rocket.get(i).getLayoutX(), game.rocket.get(i).getLayoutY());
         game.root.getChildren().remove(asteroids.get(j));

@@ -1,5 +1,6 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
+import com.comp2059.app.HelloApplication;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -34,6 +35,7 @@ public class GameStage {
     int asteroidCounter = 0;
     int asteroidCounter2 = 0;
     int modifier = 150;
+    double booster = 1;
 
     TextField txtName = new TextField();
     boolean gameOver = false;
@@ -63,7 +65,7 @@ public class GameStage {
         imgviewShuttle.setLayoutY(450);
         root.getChildren().add(imgviewShuttle);
         root.getChildren().add(txtscore);
-        Scene scene = new Scene(root, 1200, 720, Color.BLACK);
+        Scene scene = new Scene(root, HelloApplication.W, HelloApplication.H, Color.BLACK);
         this.stage.setScene(scene);
         this.stage.setResizable(false);
 
@@ -130,7 +132,7 @@ public class GameStage {
             }
         });
         AnimationTimer timer = new AnimationTimer() {
-            double delta = 4;
+            double delta = 4*booster;
 
             @Override
             public void handle(long arg0) {

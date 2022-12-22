@@ -1,4 +1,4 @@
-package com.comp2059.app;
+package com.comp2059.app.models;
 
 import javafx.scene.Node;
 
