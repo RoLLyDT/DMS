@@ -13,13 +13,13 @@ public class Velocity {
     }
 
     public void moveAsteroid() {
-        if (stage.score < 40) {
+        if (stage.score < 50) {
             speedAsteroids(stage.asteroids.getAsteroids(), 7);
             speedAsteroids(stage.asteroids.getBigAsteroids(), 6);
-        } else if (stage.score < 70) {
+        } else if (stage.score < 100) {
             speedAsteroids(stage.asteroids.getAsteroids(), 9);
             speedAsteroids(stage.asteroids.getBigAsteroids(), 8);
-        } else if (stage.score < 100) {
+        } else if (stage.score < 150) {
             speedAsteroids(stage.asteroids.getAsteroids(), 11);
             speedAsteroids(stage.asteroids.getBigAsteroids(), 10);
         } else {

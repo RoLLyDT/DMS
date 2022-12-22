@@ -23,14 +23,14 @@ public class Asteroid {
     public void CreateAsteroid() {
         stage.asteroidCounter++;
         stage.asteroidCounter2++;
-        if (stage.score < 25) {
+        if (stage.score < 50) {
             spawnAsteroids(1, 1);
-        } else if (stage.score < 60) {
+        } else if (stage.score < 100) {
             spawnAsteroids(2, 1);
-        } else if (stage.score < 85) {
+        } else if (stage.score < 150) {
             spawnAsteroids(3, 1);
         } else {
-            spawnAsteroids(4, 1);
+            spawnAsteroids(4, 2);
         }
     }
 
@@ -50,14 +50,14 @@ public class Asteroid {
     private void createNewAsteroid(Image img) {
         double x, randomWidth = 0;
         if (img == imgBigAsteroid)
-            x = H;
+            x = HelloApplication.H;
         else
-            x = W;
+            x = HelloApplication.W;
 
         Node newAsteroid = new ImageView(img);
         randomWidth = Math.random() * (x - newAsteroid.getBoundsInLocal().getWidth());
         newAsteroid.relocate((int) randomWidth,
-                             (int) (Math.random() / (W + newAsteroid.getBoundsInLocal().getWidth())));
+                             (int) (Math.random() / (HelloApplication.W + newAsteroid.getBoundsInLocal().getWidth())));
         if (img == imgBigAsteroid)
             stage.asteroids.addBigAsteroid(newAsteroid);
         else

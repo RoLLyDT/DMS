@@ -53,6 +53,18 @@ public class Collisions {
         stage.root.getChildren().remove(stage.weapons.get(i));
         stage.weapons.remove(i);
         stage.score += points;
+
+        //level increase per every 50 points
+        if (stage.score / 50 > (stage.score - points) / 50 ){
+            stage.level++;
+            stage.txtlevel.setText("Level: " + stage.level);
+        }
+
+        //speed of the shuttle increase by double amount on the 3rd stage
+        if (stage.score > 100 && stage.booster < 2) {
+            stage.booster++;
+            System.out.println(stage.booster);
+        }
         stage.txtscore.setText("Score: " + stage.score);
     }
 }

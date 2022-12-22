@@ -40,7 +40,9 @@ public class GameStage {
     TextField txtName = new TextField();
     boolean gameOver = false;
     Text txtscore;
+    Text txtlevel;
     int score = 0;
+    int level = 1;
     GameStage gameStage;
     private int points;
 
@@ -59,17 +61,39 @@ public class GameStage {
         Font font2 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
         txtscore.setFont(font2);
 
+
+        txtlevel = new Text(80, 50, "Level: " + level);
+        txtlevel.setFill(Color.WHITE);
+        Font font3 = Font.font("Segoui UI", FontWeight.BOLD, FontPosture.REGULAR, 25);
+        txtlevel.setFont(font3);
+
         rocket.add(imgviewShuttle);
         this.space.Create();
         imgviewShuttle.setLayoutX(570);
         imgviewShuttle.setLayoutY(450);
         root.getChildren().add(imgviewShuttle);
         root.getChildren().add(txtscore);
+        root.getChildren().add(txtlevel);
         Scene scene = new Scene(root, HelloApplication.W, HelloApplication.H, Color.BLACK);
         this.stage.setScene(scene);
         this.stage.setResizable(false);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+            //method for bullet creation
+            public void addBullet(int offsetX, int offsetY){
+                Rectangle rect2 = new Rectangle();
+                rect2.setWidth(5.0f);
+                rect2.setHeight(10.0f);
+                rect2.setFill(Color.RED);
+                Node newWeapon = rect2;
+                newWeapon.relocate(imgviewShuttle.getLayoutX() + offsetX, imgviewShuttle.getLayoutY() - offsetY);
+                weapons.add(newWeapon);
+                root.getChildren().add(newWeapon);
+                shoot = true;
+                musicPlayer.playLaser();
+            }
+
             @Override
             public void handle(KeyEvent event) {
                 switch (event.getCode()) {
@@ -90,16 +114,18 @@ public class GameStage {
                             return;
                         }
                         if (!shoot) {
-                            Rectangle rect2 = new Rectangle();
-                            rect2.setWidth(5.0f);
-                            rect2.setHeight(10.0f);
-                            rect2.setFill(Color.RED);
-                            Node newWeapon = rect2;
-                            newWeapon.relocate(imgviewShuttle.getLayoutX() + 45, imgviewShuttle.getLayoutY() - 5);
-                            weapons.add(newWeapon);
-                            root.getChildren().add(newWeapon);
-                            shoot = true;
-                            musicPlayer.playLaser();
+                            //based on the level change amount of bullets
+                            if (level == 1)
+                                addBullet(45, 5);
+                            else if (level == 2) {
+                                addBullet(35, 5);
+                                addBullet(55, 5);
+                            }
+                            else if (level == 3){
+                                addBullet(15, 5);
+                                addBullet(75, 5);
+                                addBullet(45, 5);
+                            }
                         }
                         break;
                     default:
@@ -132,7 +158,7 @@ public class GameStage {
             }
         });
         AnimationTimer timer = new AnimationTimer() {
-            double delta = 4*booster;
+            double delta = 4;
 
             @Override
             public void handle(long arg0) {
@@ -142,26 +168,26 @@ public class GameStage {
                 if (currX < scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
                     if (currY > 0)
                         if (goUp)
-                            currY -= delta;
+                            currY -= delta*booster;
                     if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
                         if (goDown)
-                            currY += delta;
+                            currY += delta*booster;
                     if (currX > -20)
                         if (goLeft)
-                            currX -= delta;
+                            currX -= delta*booster;
                     if (goRight)
-                        currX += delta;
+                        currX += delta*booster;
                 }
                 if (currX >= scene.getWidth() - imgviewShuttle.getBoundsInParent().getWidth()) {
                     if (currY > 0)
                         if (goUp)
-                            currY -= delta;
+                            currY -= delta*booster;
                     if (currY < scene.getHeight() - imgviewShuttle.getBoundsInParent().getHeight())
                         if (goDown)
-                            currY += delta;
+                            currY += delta*booster;
                     if (currX > -20)
                         if (goLeft)
-                            currX -= delta;
+                            currX -= delta*booster;
                 }
 
                 imgviewShuttle.relocate(currX, currY);
