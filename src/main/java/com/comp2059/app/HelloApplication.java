@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     private static Stage stage;
-    private static String space;
+    public static String space;
     public static int W = 1200, H = 720;
 
     @Override
@@ -29,7 +29,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
         new MusicPlayer().playClip(true);
-
     }
 
     public static void showSecond(String s) throws IOException {

@@ -25,7 +25,7 @@ public class HelloController implements Initializable {
     private Parent root;
 
     public void switchToScene2(ActionEvent event) throws IOException {
-        HelloApplication.showSecond(space);
+        HelloApplication.showSecond(HelloApplication.space);
         // Parent root = FXMLLoader.load(getClass().getResource("page2.fxml"));
         // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         // scene = new Scene(root);
@@ -34,16 +34,13 @@ public class HelloController implements Initializable {
     }
 
     public void switchToScene3(ActionEvent event) throws IOException {
-        HelloApplication.showThird(space);
+        HelloApplication.showThird(HelloApplication.space);
     }
 
     public void switchToScene4(ActionEvent event) throws IOException {
-        HelloApplication.showFourth(space);
+        HelloApplication.showFourth(HelloApplication.space);
     }
 
-    // Group root = new Group();
-    @FXML
-    private ChoiceBox<String> Dropdownmenu;
 
     @FXML
     private Button Quit;
@@ -69,27 +66,8 @@ public class HelloController implements Initializable {
      * }
      */
 
-    @FXML
-    void dropdownmenuclicked(MouseEvent event) {
-
-    }
-
-    String space;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Dropdownmenu.getItems().addAll("Background1", "Background2", "Background3");
-        Dropdownmenu.setValue("Background1");
-        space = "img/background.png";
 
-        Dropdownmenu.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            if (newValue.equals("Background1")) {
-                space = "img/background.png";
-            } else if (newValue.equals("Background2")) {
-                space = "img/background2.png";
-            } else if (newValue.equals("Background3")) {
-                space = "img/background3.png";
-            }
-        });
     }
 }
