@@ -61,9 +61,8 @@ public class Collisions {
         }
 
         //speed of the shuttle increase by double amount on the 3rd stage
-        if (stage.score > 100 && stage.booster < 2) {
+        if (stage.score > 99 && stage.booster < 2) {
             stage.booster++;
-            System.out.println(stage.booster);
         }
         stage.txtscore.setText("Score: " + stage.score);
     }

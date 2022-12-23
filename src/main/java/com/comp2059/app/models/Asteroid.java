@@ -23,11 +23,11 @@ public class Asteroid {
     public void CreateAsteroid() {
         stage.asteroidCounter++;
         stage.asteroidCounter2++;
-        if (stage.score < 50) {
+        if (stage.level == 1) {
             spawnAsteroids(1, 1);
-        } else if (stage.score < 100) {
+        } else if (stage.level == 2) {
             spawnAsteroids(2, 1);
-        } else if (stage.score < 150) {
+        } else if (stage.level == 3) {
             spawnAsteroids(3, 1);
         } else {
             spawnAsteroids(4, 2);

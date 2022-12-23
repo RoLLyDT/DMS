@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controllers.SecondStageController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comp2059.app.controllers.SecondStageController">
     <children>
         <Label layoutX="472.0" layoutY="73.0" prefHeight="89.0" prefWidth="256.0" text="Space Asteroids" textFill="WHITE">
             <font>
@@ -17,18 +16,28 @@
                 <Font size="24.0" />
             </font>
         </Button>
-        <Label layoutX="176.0" layoutY="189.0" prefHeight="51.0" prefWidth="849.0" text="Rules: You control a space shuttle and asteroids are in your path, you must avoid them at all costs" textFill="WHITE">
+        <Label layoutX="186.0" layoutY="192.0" prefHeight="51.0" prefWidth="849.0" text="Rules: You control a space shuttle and asteroids are in your path, you must avoid them at all costs" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-        <Label layoutX="179.0" layoutY="249.0" prefHeight="34.0" prefWidth="693.0" text="by either dodging them or destroying with your laser beam." textFill="WHITE">
+        <Label layoutX="186.0" layoutY="250.0" prefHeight="34.0" prefWidth="693.0" text="by either dodging them or destroying with your laser beam." textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-        <Label layoutX="179.0" layoutY="290.0" prefHeight="51.0" prefWidth="950.0" text="Controls: Left Arrow=Move Left,Right Arrow=Move Right, Up Arrow= Move Up, Down Arrow=Move Down, Space=Fire" textFill="WHITE">
+        <Label layoutX="186.0" layoutY="290.0" prefHeight="51.0" prefWidth="950.0" text="Controls: Left Arrow=Move Left,Right Arrow=Move Right, Up Arrow= Move Up, Down Arrow=Move Down, Space=Fire" textFill="WHITE">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
+      <Label layoutX="186.0" layoutY="341.0" prefHeight="51.0" prefWidth="849.0" text="Level increases every 50 points (up to 4th level: amount of asteroids + their speed = difficulty increases" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="186.0" layoutY="392.0" prefHeight="51.0" prefWidth="849.0" text="Player get bonus speed on the 3rd level" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

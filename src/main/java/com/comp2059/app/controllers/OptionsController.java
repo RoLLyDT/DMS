@@ -40,15 +40,13 @@ public class OptionsController implements Initializable {
 
     @FXML
     void dropdownmenuclicked(MouseEvent event) {
-
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Dropdownmenu.getItems().addAll("Background1", "Background2", "Background3");
-        Dropdownmenu.setValue("Background1");
-        HelloApplication.space = "img/background.png";
+        Dropdownmenu.setValue("Background");
 
         Dropdownmenu.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             if (newValue.equals("Background1")) {

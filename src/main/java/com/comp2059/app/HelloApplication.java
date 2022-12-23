@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     private static Stage stage;
-    public static String space;
+    public static String space = "img/background.png";
     public static int W = 1200, H = 720;
 
     @Override
