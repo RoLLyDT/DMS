@@ -17,18 +17,34 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
+/**
+ * The Player class creates the player.
+ * 
+ * @author TeamMinecraft
+ */
 public class Player {
     private GameStage game;
-
+/**
+ * This constructor passed gameStage to Player class
+ * @param gameStage
+ */
     public Player(GameStage gameStage) {
         this.game = gameStage;
     }
-
+ /**
+     * This method is used to check if the player has collided with an asteroid.
+     * If the player has collided with an asteroid, the game is over.
+     */
     public void collide() {
         checkShuttleAsteroid(game.asteroids.getAsteroids(), "img/explosion.gif", "audio/Explosion2.WAV");
         checkShuttleAsteroid(game.asteroids.getBigAsteroids(), "img/bigexplosion.gif", "audio/Explosion2.WAV");
     }
-
+/**
+ * This method checks if the player has collided with an asteroid.
+ * @param asteroids  Arraylist of asteroids.
+ * @param explosionPath Path of the explosion image.
+ * @param audioPath Path of the audio file
+ */
     private void checkShuttleAsteroid(ArrayList<Node> asteroids, String explosionPath, String audioPath) {
         for (int i = 0; i < game.rocket.size(); i++) {
             for (int j = 0; j < asteroids.size(); j++) {
@@ -38,7 +54,14 @@ public class Player {
             }
         }
     }
-
+/**
+ * This method is used to check if the player has collided with an asteroid.
+ * @param i
+ * @param j
+ * @param explosionPath Path of the explosion image.
+ * @param audioPath Path of the audio file
+ * @param asteroids Arraylist of asteroids.
+ */
     private void contactShuttleAsteroid(int i, int j, String explosionPath, String audioPath,
                                         ArrayList<Node> asteroids) {
         game.gameOver = true;

@@ -18,14 +18,23 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * The optionscontroller class is responsible for the options page.
+ * 
+ * @author TeamMinecraft
+ */
 public class OptionsController implements Initializable {
     Stage stage;
     private Scene scene;
     private Parent root;
     @FXML
     private TextField name;
-
+/**
+     * The switchToScene1 method is responsible for the first page of the main menu.
+     * 
+     * @param event The ActionEvent object.
+     * @throws IOException
+     */
     public void switchToScene1(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -42,7 +51,14 @@ public class OptionsController implements Initializable {
     void dropdownmenuclicked(MouseEvent event) {
     }
 
-
+    /**
+     * The initialize method is responsible for the initialisation of the options
+     * page.
+     * 
+     * @param url            The URL object.
+     * @param resourceBundle The ResourceBundle object.
+     * @throws IOException
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Dropdownmenu.getItems().addAll("Background1", "Background2", "Background3");

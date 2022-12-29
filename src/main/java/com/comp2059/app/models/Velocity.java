@@ -4,14 +4,25 @@ import com.comp2059.app.HelloApplication;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
-
+/**
+ * The Velocity class controls the speed of the asteroids.
+ * 
+ * @author TeamMinecraft
+ */
 public class Velocity {
     private GameStage stage;
-
+    /**
+     * The Velocity class controls the speed of the asteroids.
+     * 
+     * @param stage The GameStage object.
+     */
     public Velocity(GameStage stage) {
         this.stage = stage;
     }
-
+    /**
+     * moveAsteroid() method controls the speed of the asteroids.
+     * The speed of the asteroids increases as the score increases.
+     */
     public void moveAsteroid() {
         if (stage.level == 1) {
             speedAsteroids(stage.asteroids.getAsteroids(), 7);
@@ -27,7 +38,12 @@ public class Velocity {
             speedAsteroids(stage.asteroids.getBigAsteroids(), 13);
         }
     }
-
+    /**
+     * speedAsteroids() method controls the speed of the asteroids.
+     * 
+     * @param asteroids The ArrayList of asteroids.
+     * @param buff      The speed of the asteroids.
+     */
     private void speedAsteroids(ArrayList<Node> asteroids, int buff) {
         for (int i = 0; i < asteroids.size(); i++) {
             if (asteroids.get(i).getLayoutX() > -asteroids.get(i).getBoundsInLocal().getWidth() &&

@@ -16,7 +16,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * The secondstagecontroller class is responsible for the second page of the
+ * main menu.
+ * 
+ * @author TeamMinecraft
+ */
 public class SecondStageController implements Initializable {
     Stage stage;
     private Scene scene;
@@ -25,6 +30,12 @@ public class SecondStageController implements Initializable {
     private TextField name;
 
     @FXML
+    /**
+     * The switchToGame method is responsible for the game.
+     * 
+     * @param event
+     * @throws IOException
+     */
     public void switchToGame(ActionEvent event) throws IOException {
         if (name.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Name is required!", ButtonType.OK);
@@ -33,7 +44,12 @@ public class SecondStageController implements Initializable {
         }
         HelloApplication.showGame();
     }
-
+    /**
+     * The switchToScene1 method is responsible for the first page of the main menu.
+     * 
+     * @param event
+     * @throws IOException
+     */
     public void switchToScene1(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

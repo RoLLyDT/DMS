@@ -20,6 +20,12 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+
+/**
+ * The GameStage class creates the game stage.
+ * 
+ * @author TeamMinecraft
+ */
 public class GameStage {
     Stage stage;
     Space space;
@@ -27,25 +33,30 @@ public class GameStage {
 
     boolean goUp, goDown, goLeft, goRight, shoot;
     ArrayList<Node> weapons = new ArrayList<>();
-    Asteroids asteroids;
+    public Asteroids asteroids;
     ArrayList<Node> rocket = new ArrayList<>();
     static final double L = 800, W = 1200, H = 720; // SIZES
     int dShoot = 10;
-    Group root = new Group();
-    int asteroidCounter = 0;
-    int asteroidCounter2 = 0;
-    int modifier = 150;
+    public Group root = new Group();
+    public int asteroidCounter = 0;
+    public int asteroidCounter2 = 0;
+    public int modifier = 150;
     double booster = 1;
 
     TextField txtName = new TextField();
     boolean gameOver = false;
     Text txtscore;
     Text txtlevel;
-    int score = 0;
+    public int score = 0;
     int level = 1;
     GameStage gameStage;
     private int points;
-
+    /**
+     * This constructor passed stage and space to GameStage class
+     * 
+     * @param stage The stage of the game
+     * @param space The space of the game
+     */
     public GameStage(Stage stage, String space) {
         this.asteroids = new Asteroids();
         this.gameStage = this;
@@ -93,7 +104,13 @@ public class GameStage {
                 shoot = true;
                 musicPlayer.playLaser();
             }
-
+            /**
+             * This method handles the key pressed event
+             * 
+             * @param event The key pressed event
+             * @return void
+             * @throws Exception
+             */
             @Override
             public void handle(KeyEvent event) {
                 switch (event.getCode()) {
@@ -134,6 +151,13 @@ public class GameStage {
             }
         });
         scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            /**
+             * This method handles the key released event
+             * 
+             * @param event The key released event
+             * @return void
+             * @throws Exception
+             */
             @Override
             public void handle(KeyEvent event) {
                 switch (event.getCode()) {
@@ -159,7 +183,13 @@ public class GameStage {
         });
         AnimationTimer timer = new AnimationTimer() {
             double delta = 4;
-
+            /**
+             * This method handles the animation timer
+             * 
+             * @param arg0 The animation timer
+             * @return void
+             * @throws Exception
+             */
             @Override
             public void handle(long arg0) {
                 double currX = imgviewShuttle.getLayoutX();
@@ -205,7 +235,9 @@ public class GameStage {
         };
         timer.start();
     }
-
+    /**
+     * This method shows the stage
+     */
     public void show() {
         stage.show();
     }
