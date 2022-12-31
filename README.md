@@ -25,6 +25,7 @@ _Additional Features_
 We added multiple features such as different bullets based on level, shuttle velocity on 3rd stage, varies by difficulties, limit world edges for shuttle and asteroids, ability to change background (Up to 3 background), background music and sound effect(laser and explosion sound effect),
 
 Collaborative efforts in refactoring, features implementation and code design led to this result. 
+<br />
 Max’s Part:
 - Most of the classes - code amount reduce and simplification 
 - Moved classes by folders 
