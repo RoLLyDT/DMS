@@ -3,8 +3,8 @@
 Brainstorming Ideas and Approx Timetable 
 We started Brainstorming ideas (Not fully implemented)
 Minimal fixes plan:
-- Add sound effect to the game (eg. background music, laser gun, asteroid explosion, etc)
-- Make Asteroid appears from the top of the game, not randomly appears. (movement speed, normal size)
+Add sound effect to the game
+ Make Asteroid appears from the top of the game, not randomly appears. (movement speed, normal size)
 Planned Features(Not fully implemented) :
 1. Amount of levels (varies by difficulty)
 2. Limit world edges
@@ -19,7 +19,7 @@ _Gitlab_
 We used most of GitLab functions such as Milestone, commit, Git Branch, Merge Request, commit, etc, for the best experience of using GitLab and we are more confident with using Gitlab that we do in the beginning of the semester. 
 
 _Refactoring_
-We refactored code to improve design, structure and implementation of Space Asteroid game. Refactoring also help with code readability. For the refacoring part of SpaceAsteroid game, we did OO Design Pattern (State, Factory Method, Singleton, Abstract Factory Pattern), code simplification, code maintenance, divide class/methods into multiple java class files. MVC Design Pattern (Model-View-Controller), implement GUI using Scene Builder. 
+We refactored code to improve design, structure and implementation of Space Asteroid game. Refactoring also help with code readability. For the refacoring part of SpaceAsteroid game, we did OO Design Pattern (Collision and Asteroid - State, Asteroids - Factory Method, Bullet - Singleton, other classes - Abstract Factory Pattern), code simplification, code maintenance, divide class/methods into multiple java class files. MVC Design Pattern (Model-View-Controller), implement GUI using Scene Builder. 
 
 _Additional Features_
 We added multiple features such as different bullets based on level, shuttle velocity on 3rd stage, varies by difficulties, limit world edges for shuttle and asteroids, ability to change background (Up to 3 background), background music and sound effect(laser and explosion sound effect),
