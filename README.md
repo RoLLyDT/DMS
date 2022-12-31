@@ -1,5 +1,8 @@
 #AE2DMS-CW-MINECRAFT
 
+Puttipatt INGKASIT 20217748 
+Maksim KOZLOV 20219332 
+
 Brainstorming Ideas and Approx Timetable 
 We started Brainstorming ideas (Not fully implemented)
 Minimal fixes plan:
