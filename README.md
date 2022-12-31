@@ -31,9 +31,7 @@ Max’s Part:
 - helped with fixing background, when I was in quarantine 
 - All game features (multiple bullets based on level, shuttle velocity on 3rd stage, change of difficulties(speed+amount of asteroids),world edges for shuttle and asteroids) 
 - UML diagram
-<br/>
 Patt’s Part:
-<br/>
 - I did divide classes/methods that Maksim refactored before from one java file to multiple java class files 
 - GUI with Scene Builder for Main screen(Hello.FXML), page 2, page 3, page 4 
 - Added Controller class and Model class 
