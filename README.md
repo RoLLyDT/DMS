@@ -41,12 +41,15 @@ Patt’s Part:
 - Did Javadocs for every classes 
 - video-editing and add subtitles 
 - Added background music, sound effect for laser and explosion 
+<br/>
 What we did together:
 - Finalize MVC Design Pattern
 - OO Design Pattern 
 - Background option (Background 1, 2, 3) and implemented it in Option Page FXML 
 - Minimal bugs fixes 
+<br/>
 Problem we encountered:
 Since we live in different countries, it’s kinda difficult for us to communicate through online non-Chinese platform. We encountered problem with accessing UNNC online VPN couple of times. Communication is also a minor problem due to communicating online wasn’t as efficient as in person. 
+<br/>
 Reflection:
 We would say, this project is a success for us. We did learn a lot in terms of both collaboration and coding counterparts. Even though there’s some issue/problem, we still developed a good friendship throughout the duration of the project.
