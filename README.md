@@ -31,7 +31,9 @@ Max’s Part:
 - helped with fixing background, when I was in quarantine 
 - All game features (multiple bullets based on level, shuttle velocity on 3rd stage, change of difficulties(speed+amount of asteroids),world edges for shuttle and asteroids) 
 - UML diagram
-<br>
+<br />
+
+
 Patt’s Part:
 - I did divide classes/methods that Maksim refactored before from one java file to multiple java class files 
 - GUI with Scene Builder for Main screen(Hello.FXML), page 2, page 3, page 4 
@@ -39,15 +41,19 @@ Patt’s Part:
 - Did Javadocs for every classes 
 - video-editing and add subtitles 
 - Added background music, sound effect for laser and explosion 
-<br/>
+<br />
+
+
 What we did together:
 - Finalize MVC Design Pattern
 - OO Design Pattern 
 - Background option (Background 1, 2, 3) and implemented it in Option Page FXML 
 - Minimal bugs fixes 
-<br/>
+
+<br />
 Problem we encountered:
 Since we live in different countries, it’s kinda difficult for us to communicate through online non-Chinese platform. We encountered problem with accessing UNNC online VPN couple of times. Communication is also a minor problem due to communicating online wasn’t as efficient as in person. 
-<br/>
+
+<br />
 Reflection:
 We would say, this project is a success for us. We did learn a lot in terms of both collaboration and coding counterparts. Even though there’s some issue/problem, we still developed a good friendship throughout the duration of the project.
