@@ -24,7 +24,7 @@ _Additional Features_
 We added multiple features such as different bullets based on level, shuttle velocity on 3rd stage, varies by difficulties, limit world edges for shuttle and asteroids, ability to change background (Up to 3 background), background music and sound effect(laser and explosion sound effect),
 
 Collaborative efforts in refactoring, features implementation and code design led to this result. 
-**Max’s Part: **
+**Max’s Part:**
 - Most of the classes - code amount reduce and simplification 
 - Moved classes by folders 
 - helped with fixing background, when I was in quarantine 
@@ -39,13 +39,13 @@ Collaborative efforts in refactoring, features implementation and code design le
 - video-editing and add subtitles 
 - Added background music, sound effect for laser and explosion 
 
-**What we did together: **
+**What we did together:**
 - Finalize MVC Design Pattern
 - OO Design Pattern 
 - Background option (Background 1, 2, 3) and implemented it in Option Page FXML 
 - Minimal bugs fixes 
 
-**Problem we encountered: **
+**Problem we encountered:**
 Since we live in different countries, it’s kinda difficult for us to communicate through online non-Chinese platform. We encountered problem with accessing UNNC online VPN couple of times. Communication is also a minor problem due to communicating online wasn’t as efficient as in person. 
 
 **Reflection:**
