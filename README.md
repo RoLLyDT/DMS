@@ -14,6 +14,7 @@ Planned Features(Not fully implemented) :
 
 
 **Our Achievement as a TEAM**
+<br/>
 _Gitlab_
 We used most of GitLab functions such as Milestone, commit, Git Branch, Merge Request, commit, etc, for the best experience of using GitLab and we are more confident with using Gitlab that we do in the beginning of the semester. 
 
