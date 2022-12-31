@@ -1,0 +1,7 @@
+module:com.vexed.vexed
+com.comp2059.app
+com.comp2059.app.controllers
+com.comp2059.app.factory.asteroid
+com.comp2059.app.factory.bullet
+com.comp2059.app.factory.collision
+com.comp2059.app.models
