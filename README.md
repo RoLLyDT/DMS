@@ -14,7 +14,7 @@ Make Asteroid appears from the top of the game, not randomly appears.Planned Fea
 To run the program, click run on HelloApplication.java file 
 <br/>
 **Our Achievement as a TEAM**
-<br/>
+
 _Gitlab_
 We used most of GitLab functions such as Milestone, commit, Git Branch, Merge Request, commit, etc, for the best experience of using GitLab and we are more confident with using Gitlab that we do in the beginning of the semester. 
 
@@ -31,7 +31,7 @@ Max’s Part:
 - helped with fixing background, when I was in quarantine 
 - All game features (multiple bullets based on level, shuttle velocity on 3rd stage, change of difficulties(speed+amount of asteroids),world edges for shuttle and asteroids) 
 - UML diagram
-<br/>
+<br>
 Patt’s Part:
 - I did divide classes/methods that Maksim refactored before from one java file to multiple java class files 
 - GUI with Scene Builder for Main screen(Hello.FXML), page 2, page 3, page 4 
