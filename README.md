@@ -14,10 +14,10 @@ Planned Features(Not fully implemented) :
 
 
 **Our Achievement as a TEAM**
-_Gitlab _
+_Gitlab_
 We used most of GitLab functions such as Milestone, commit, Git Branch, Merge Request, commit, etc, for the best experience of using GitLab and we are more confident with using Gitlab that we do in the beginning of the semester. 
 
-_Refactoring _
+_Refactoring_
 We refactored code to improve design, structure and implementation of Space Asteroid game. Refactoring also help with code readability. For the refacoring part of SpaceAsteroid game, we did OO Design Pattern (State, Factory Method, Singleton, Abstract Factory Pattern), code simplification, code maintenance, divide class/methods into multiple java class files. MVC Design Pattern (Model-View-Controller), implement GUI using Scene Builder. 
 
 _Additional Features_
